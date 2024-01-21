@@ -6,8 +6,14 @@ function Canvas({ skills }) {
 
         <div className="flex flex-col justify-start text-left">
           <h2 className="bg-red-100 font-bold">Skills</h2>
-          <p>Skill: {skills[0].skill}</p>
-          <p>Information: {skills[0].info}</p>
+          {skills.map((item, index) => {
+            return (
+              <div key={index}>
+                <p>Skill: {item.skill}</p>
+                <p>Information: {item.info}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
