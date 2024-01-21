@@ -14,7 +14,9 @@ export default function CanvasProjects({ projects }) {
               )}
               <div className="flex items-center justify-between"></div>
               <p>Projects: {item.project}</p>
-              <p>Description: {item.description}</p>
+              <p className="text-sm text-slate-600">
+                Description: {item.description}
+              </p>
             </div>
           );
         }

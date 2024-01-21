@@ -6,6 +6,7 @@ import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 
 function App() {
+  const [shownCard, setShownCard] = useState(1);
   const [skillState, setSkillState] = useState([
     {
       skill: "",
@@ -25,6 +26,8 @@ function App() {
       <div className="flex flex-col gap-4">
         <Card>
           <Skills
+            shownCard={shownCard}
+            setShownCard={setShownCard}
             title={"Skills"}
             state={skillState}
             setState={setSkillState}
@@ -32,6 +35,8 @@ function App() {
         </Card>
         <Card>
           <Projects
+            shownCard={shownCard}
+            setShownCard={setShownCard}
             title={"Projects"}
             state={projectState}
             setState={setProjectState}

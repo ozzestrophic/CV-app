@@ -12,7 +12,7 @@ export default function CanvasSkills({ skills }) {
               )}
               <div className="flex items-center justify-between"></div>
               <p>Skill: {item.skill}</p>
-              <p>Information: {item.info}</p>
+              <p className="text-sm text-slate-600">Sub-Skills: {item.info}</p>
             </div>
           );
         }
