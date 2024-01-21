@@ -7,9 +7,15 @@ import Skills from "./components/Skills.jsx";
 function App() {
   const [skillsState, setSkillsState] = useState([
     {
-      index: 0,
+      // index: 0,
       skill: "ball",
       info: "footballer",
+      show: true,
+    },
+    {
+      // index: 0,
+      skill: "basketball",
+      info: "basketballer",
       show: true,
     },
   ]);
@@ -19,8 +25,8 @@ function App() {
         <Card>
           <Skills
             title={"Skills"}
-            value={skillsState}
-            setValue={setSkillsState}
+            state={skillsState}
+            setState={setSkillsState}
           />
         </Card>
         <Card>Projects</Card>

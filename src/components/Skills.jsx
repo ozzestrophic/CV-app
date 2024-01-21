@@ -1,6 +1,6 @@
 import Input from "./Input";
 
-function Skills({ title, value, setValue }) {
+function Skills({ title, state, setState }) {
   return (
     <>
       <div className="flex justify-between">
@@ -10,15 +10,26 @@ function Skills({ title, value, setValue }) {
         <div>^</div>
       </div>
 
-      <div className="flex flex-col gap-4">
-        {/* <Input inputName="Skill" value={value[0].skill} setValue={setValue} /> */}
-        <Input inputName="Skill" value={value} setValue={setValue} />
-        <Input
-          inputName="Information/Subskill"
-          value={value}
-          setValue={setValue}
-        />
-      </div>
+      {state.map((item, index) => {
+        return (
+          <div key={index} className="flex flex-col gap-4">
+            <Input
+              inputName="skill"
+              index={index}
+              title={"Skill"}
+              state={state}
+              setState={setState}
+            />
+            <Input
+              inputName="info"
+              index={index}
+              title={"Information/Sub-skill"}
+              state={state}
+              setState={setState}
+            />
+          </div>
+        );
+      })}
     </>
   );
 }

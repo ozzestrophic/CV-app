@@ -1,18 +1,20 @@
-function Input({ inputName, value, setValue }) {
+function Input({ inputName, index, title, state, setState }) {
   return (
     <div className="flex flex-col justify-start gap-1 text-left">
       <label htmlFor={inputName} className="font-semibold">
-        {inputName}
+        {title}
       </label>
       <input
         id={inputName}
         type="text"
-        value={value[0].skill}
+        value={state[index][inputName]}
         onChange={(e) => {
-          const newValue = value.map((item, index) =>
-            index === 0 ? { ...item, skill: e.target.value } : item,
+          const newValue = state.map((item, stateIndex) =>
+            stateIndex === index
+              ? { ...item, [inputName]: e.target.value }
+              : item,
           );
-          setValue(newValue);
+          setState(newValue);
         }}
         className="rounded-md  bg-slate-100 p-2 focus:outline-slate-300"
       />
