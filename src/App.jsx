@@ -3,19 +3,20 @@ import "./App.css";
 import Canvas from "./components/Canvas.jsx";
 import Card from "./components/Card.jsx";
 import Skills from "./components/Skills.jsx";
+import Projects from "./components/Projects.jsx";
 
 function App() {
-  const [skillsState, setSkillsState] = useState([
+  const [skillState, setSkillState] = useState([
     {
-      // index: 0,
-      skill: "ball",
-      info: "footballer",
+      skill: "",
+      info: "",
       show: true,
     },
+  ]);
+  const [projectState, setProjectState] = useState([
     {
-      // index: 0,
-      skill: "basketball",
-      info: "basketballer",
+      project: "",
+      description: "",
       show: true,
     },
   ]);
@@ -25,13 +26,19 @@ function App() {
         <Card>
           <Skills
             title={"Skills"}
-            state={skillsState}
-            setState={setSkillsState}
+            state={skillState}
+            setState={setSkillState}
           />
         </Card>
-        <Card>Projects</Card>
+        <Card>
+          <Projects
+            title={"Projects"}
+            state={projectState}
+            setState={setProjectState}
+          />
+        </Card>
       </div>
-      <Canvas skills={skillsState} />
+      <Canvas skills={skillState} projects={projectState} />
     </main>
   );
 }
