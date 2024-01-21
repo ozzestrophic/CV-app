@@ -7,9 +7,12 @@ function Input({ inputName, value, setValue }) {
       <input
         id={inputName}
         type="text"
-        value={value}
+        value={value[0].skill}
         onChange={(e) => {
-          setValue(e.target.value);
+          const newValue = value.map((item, index) =>
+            index === 0 ? { ...item, skill: e.target.value } : item,
+          );
+          setValue(newValue);
         }}
         className="rounded-md  bg-slate-100 p-2 focus:outline-slate-300"
       />
