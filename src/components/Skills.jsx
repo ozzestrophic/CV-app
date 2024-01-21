@@ -4,22 +4,6 @@ import HideButton from "./HideButton";
 import Input from "./Input";
 
 function Skills({ title, state, setState }) {
-  function deleteFunction(index) {
-    const newState = [...state];
-    newState.splice(index, 1);
-    setState(newState);
-  }
-
-  function hideFunction(index) {
-    // let newState = [...state];
-    const newState = state.map((item, stateIndex) => {
-      if (stateIndex !== index) return item;
-      return { ...item, show: !item.show };
-    });
-    console.log("new state is ", newState);
-    setState(newState);
-  }
-
   return (
     <>
       <div className="flex justify-between">
@@ -37,16 +21,8 @@ function Skills({ title, state, setState }) {
                 # {index + 1}
               </h3>
               <div className="flex gap-2">
-                <HideButton
-                  handleClick={() => {
-                    hideFunction(index);
-                  }}
-                />
-                <DeleteButton
-                  handleClick={() => {
-                    deleteFunction(index);
-                  }}
-                />
+                <HideButton index={index} state={state} setState={setState} />
+                <DeleteButton index={index} state={state} setState={setState} />
               </div>
             </div>
             <Input
