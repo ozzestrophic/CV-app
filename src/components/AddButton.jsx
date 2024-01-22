@@ -4,7 +4,7 @@ function AddButton({ handleClick }) {
       className="rounded-lg border-2 border-solid border-rose-400 p-2 text-rose-500"
       onClick={handleClick}
     >
-      Add new skill
+      Add new
     </button>
   );
 }

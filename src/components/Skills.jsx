@@ -5,18 +5,18 @@ import Input from "./Input";
 import CardTab from "./CardTab";
 
 function Skills({ title, shownCard, setShownCard, state, setState }) {
-  const cardIndex = 1;
+  const cardIndex = 2;
 
-  if (shownCard === cardIndex) {
-    return (
-      <>
-        <CardTab
-          cardIndex={cardIndex}
-          title={title}
-          shownCard={shownCard}
-          setShownCard={setShownCard}
-        />
-        {state.map((item, index) => {
+  return (
+    <>
+      <CardTab
+        cardIndex={cardIndex}
+        title={title}
+        shownCard={shownCard}
+        setShownCard={setShownCard}
+      />
+      {shownCard === cardIndex &&
+        state.map((item, index) => {
           return (
             <div key={index} className="flex flex-col justify-start gap-4">
               {index !== 0 && (
@@ -52,7 +52,7 @@ function Skills({ title, shownCard, setShownCard, state, setState }) {
             </div>
           );
         })}
-
+      {shownCard === cardIndex && (
         <AddButton
           handleClick={() => {
             const newState = [...state];
@@ -60,20 +60,9 @@ function Skills({ title, shownCard, setShownCard, state, setState }) {
             setState(newState);
           }}
         />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <CardTab
-          cardIndex={cardIndex}
-          title={title}
-          shownCard={shownCard}
-          setShownCard={setShownCard}
-        />
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }
 
 export default Skills;

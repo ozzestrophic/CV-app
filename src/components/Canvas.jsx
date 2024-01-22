@@ -1,12 +1,13 @@
+import CanvasPersonal from "./CanvasPersonal";
 import CanvasProjects from "./CanvasProjects";
 import CanvasSkills from "./CanvasSkills";
 
-function Canvas({ skills, projects }) {
+function Canvas({ skills, projects, personalInfo }) {
   return (
-    <section className=" bg-white p-8 shadow-md">
+    <section className=" h-[800px] bg-white p-8 shadow-md">
       <div className="">
-        <h2>John Doe</h2>
-
+        {/* <h2>John Doe</h2> */}
+        <CanvasPersonal personalInfo={personalInfo} />
         <CanvasSkills skills={skills} />
         <CanvasProjects projects={projects} />
       </div>

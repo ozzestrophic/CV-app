@@ -5,18 +5,18 @@ import Input from "./Input";
 import CardTab from "./CardTab";
 
 function Projects({ title, shownCard, setShownCard, state, setState }) {
-  const cardIndex = 2;
+  const cardIndex = 3;
 
-  if (shownCard === cardIndex) {
-    return (
-      <>
-        <CardTab
-          cardIndex={cardIndex}
-          title={title}
-          shownCard={shownCard}
-          setShownCard={setShownCard}
-        />
-        {state.map((item, index) => {
+  return (
+    <>
+      <CardTab
+        cardIndex={cardIndex}
+        title={title}
+        shownCard={shownCard}
+        setShownCard={setShownCard}
+      />
+      {shownCard === cardIndex &&
+        state.map((item, index) => {
           return (
             <div key={index} className="flex flex-col justify-start gap-4">
               {index !== 0 && (
@@ -53,27 +53,17 @@ function Projects({ title, shownCard, setShownCard, state, setState }) {
           );
         })}
 
+      {shownCard === cardIndex && (
         <AddButton
           handleClick={() => {
             const newState = [...state];
-            newState.push({ skill: "", info: "", show: true });
+            newState.push({ project: "", description: "", show: true });
             setState(newState);
           }}
         />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <CardTab
-          cardIndex={cardIndex}
-          title={title}
-          shownCard={shownCard}
-          setShownCard={setShownCard}
-        />
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }
 
 export default Projects;

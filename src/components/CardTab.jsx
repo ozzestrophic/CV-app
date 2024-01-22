@@ -3,7 +3,7 @@ import toggleCard from "../toggleCard";
 function CardTab({ title, shownCard, setShownCard, cardIndex }) {
   return (
     <div
-      className="flex justify-between"
+      className="flex cursor-pointer justify-between"
       onClick={() => toggleCard(shownCard, setShownCard, cardIndex)}
     >
       <div>
