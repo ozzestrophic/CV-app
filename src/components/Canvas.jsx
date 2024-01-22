@@ -1,8 +1,9 @@
+import CanvasExperience from "./CanvasExperience";
 import CanvasPersonal from "./CanvasPersonal";
 import CanvasProjects from "./CanvasProjects";
 import CanvasSkills from "./CanvasSkills";
 
-function Canvas({ skills, projects, personalInfo }) {
+function Canvas({ skills, projects, personalInfo, experienceState }) {
   return (
     <section className=" h-[800px] bg-white p-8 shadow-md">
       <div className="">
@@ -10,6 +11,7 @@ function Canvas({ skills, projects, personalInfo }) {
         <CanvasPersonal personalInfo={personalInfo} />
         <CanvasSkills skills={skills} />
         <CanvasProjects projects={projects} />
+        <CanvasExperience state={experienceState} />
       </div>
     </section>
   );

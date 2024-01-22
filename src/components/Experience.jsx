@@ -2,12 +2,18 @@ import AddButton from "./AddButton";
 import DeleteButton from "./DeleteButton";
 import HideButton from "./HideButton";
 import Input from "./Input";
+import InputDate from "./InputDate";
 import CardTab from "./CardTab";
 import InputArea from "./InputArea";
 
-function Projects({ title, shownCard, setShownCard, state, setState }) {
-  const cardIndex = 3;
-
+export default function Experience({
+  shownCard,
+  setShownCard,
+  title,
+  state,
+  setState,
+}) {
+  const cardIndex = 4;
   return (
     <>
       <CardTab
@@ -15,7 +21,7 @@ function Projects({ title, shownCard, setShownCard, state, setState }) {
         title={title}
         shownCard={shownCard}
         setShownCard={setShownCard}
-      />
+      />{" "}
       {shownCard === cardIndex &&
         state.map((item, index) => {
           return (
@@ -37,12 +43,35 @@ function Projects({ title, shownCard, setShownCard, state, setState }) {
                 </div>
               </div>
               <Input
-                inputName="project"
+                inputName="job"
                 index={index}
-                title={"Project"}
+                title={"Job"}
                 state={state}
                 setState={setState}
               />
+              <Input
+                inputName="employer"
+                index={index}
+                title={"Employer"}
+                state={state}
+                setState={setState}
+              />
+              <div className="grid grid-cols-2 gap-4">
+                <InputDate
+                  inputName="start"
+                  index={index}
+                  title={"Start"}
+                  state={state}
+                  setState={setState}
+                />
+                <InputDate
+                  inputName="end"
+                  index={index}
+                  title={"End"}
+                  state={state}
+                  setState={setState}
+                />
+              </div>
               <InputArea
                 inputName="description"
                 index={index}
@@ -53,7 +82,6 @@ function Projects({ title, shownCard, setShownCard, state, setState }) {
             </div>
           );
         })}
-
       {shownCard === cardIndex && (
         <AddButton
           handleClick={() => {
@@ -66,5 +94,3 @@ function Projects({ title, shownCard, setShownCard, state, setState }) {
     </>
   );
 }
-
-export default Projects;

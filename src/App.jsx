@@ -5,16 +5,17 @@ import Card from "./components/Card.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Personal from "./components/Personal.jsx";
+import Experience from "./components/Experience.jsx";
 
 function App() {
   const [shownCard, setShownCard] = useState(1);
 
   const [personalInfo, setPersonalInfo] = useState([
     {
-      name: "osama",
-      email: "osama@alnagar",
-      phone: "1234",
-      address: "Cairo",
+      name: "John Doe",
+      email: "John@Doe.com",
+      phone: "0123456789",
+      address: "Cairo, Egypt",
     },
   ]);
   const [skillState, setSkillState] = useState([
@@ -28,6 +29,16 @@ function App() {
     {
       project: "",
       description: "",
+      show: true,
+    },
+  ]);
+  const [experienceState, setExperienceState] = useState([
+    {
+      job: "Developer",
+      employer: "Google",
+      description: "Working",
+      start: "",
+      end: "",
       show: true,
     },
   ]);
@@ -61,11 +72,21 @@ function App() {
             setState={setProjectState}
           />
         </Card>
+        <Card>
+          <Experience
+            shownCard={shownCard}
+            setShownCard={setShownCard}
+            title={"Experience"}
+            state={experienceState}
+            setState={setExperienceState}
+          />
+        </Card>
       </div>
       <Canvas
         skills={skillState}
         projects={projectState}
         personalInfo={personalInfo}
+        experienceState={experienceState}
       />
     </main>
   );
