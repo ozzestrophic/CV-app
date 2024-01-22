@@ -6,6 +6,7 @@ import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Personal from "./components/Personal.jsx";
 import Experience from "./components/Experience.jsx";
+import Education from "./components/Education.jsx";
 
 function App() {
   const [shownCard, setShownCard] = useState(1);
@@ -37,6 +38,16 @@ function App() {
       job: "Developer",
       employer: "Google",
       description: "Working",
+      start: "",
+      end: "",
+      show: true,
+    },
+  ]);
+  const [educationState, setEducationState] = useState([
+    {
+      school: "Cairo University",
+      major: "Computer Science",
+      description: "studied",
       start: "",
       end: "",
       show: true,
@@ -81,12 +92,22 @@ function App() {
             setState={setExperienceState}
           />
         </Card>
+        <Card>
+          <Education
+            shownCard={shownCard}
+            setShownCard={setShownCard}
+            title={"Education"}
+            state={educationState}
+            setState={setEducationState}
+          />
+        </Card>
       </div>
       <Canvas
         skills={skillState}
         projects={projectState}
         personalInfo={personalInfo}
         experienceState={experienceState}
+        educationState={educationState}
       />
     </main>
   );

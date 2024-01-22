@@ -6,14 +6,14 @@ import InputDate from "./InputDate";
 import CardTab from "./CardTab";
 import InputArea from "./InputArea";
 
-export default function Experience({
+export default function Education({
   shownCard,
   setShownCard,
   title,
   state,
   setState,
 }) {
-  const cardIndex = 4;
+  const cardIndex = 5;
   return (
     <>
       <CardTab
@@ -43,16 +43,16 @@ export default function Experience({
                 </div>
               </div>
               <Input
-                inputName="job"
+                inputName="school"
                 index={index}
-                title={"Job"}
+                title={"School"}
                 state={state}
                 setState={setState}
               />
               <Input
-                inputName="employer"
+                inputName="major"
                 index={index}
-                title={"Employer"}
+                title={"Major"}
                 state={state}
                 setState={setState}
               />
@@ -87,8 +87,8 @@ export default function Experience({
           handleClick={() => {
             const newState = [...state];
             newState.push({
-              job: "",
-              employer: "",
+              school: "",
+              major: "",
               start: "",
               end: "",
               description: "",
