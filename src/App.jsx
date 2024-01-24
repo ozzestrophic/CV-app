@@ -54,7 +54,7 @@ function App() {
     },
   ]);
   return (
-    <main className="grid h-full w-full grid-cols-1 gap-4 bg-slate-100 p-10 md:grid-cols-2">
+    <main className="grid h-screen w-screen grid-cols-1 gap-4 bg-slate-100 p-10 md:grid-cols-2">
       <div className="flex flex-col gap-4">
         <Card>
           <Personal
